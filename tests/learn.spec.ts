@@ -1,7 +1,7 @@
 import test, {expect} from "@playwright/test";
 import { sigUpPage } from "../pages/Signup.po";
 import { HomePage } from "../pages/Home.po";
-// import { signInPage } from "../pages/Signin.po";
+import { signInPage } from "../pages/Signin.po";
 
 test('Sign Up functionality', async ({ page }) => {
     await page.goto(''); // Replace with your application's URL
@@ -13,11 +13,11 @@ test('Sign Up functionality', async ({ page }) => {
     await expect(sigUpPage.getTittle(page)).toBeVisible();
 });
 
-// test('Sign In functionality', async ({ page }) => {
-//     await page.goto(''); // Replace with your application's URL
-//     await HomePage.sigIn(page);
-//     await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
-//     await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
-//     await signInPage.clickSignInButton(page);
-//     await expect(signInPage.getTittle(page)).toBeVisible();
-// });
+test('Sign In functionality', async ({ page }) => {
+    await page.goto(''); // Replace with your application's URL
+    await HomePage.sigIn(page);
+    await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
+    await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
+    await signInPage.clickSignInButton(page);
+    await expect(signInPage.getTittle(page)).toBeVisible();
+});
