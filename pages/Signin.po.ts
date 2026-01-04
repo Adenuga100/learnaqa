@@ -17,7 +17,7 @@ export class signInPage {
         return await page.getByRole('button', { name: 'Sign In' }).click();
     }
 
-     static  getTittle(page: Page) : Locator {
+    static  getTittle(page: Page) : Locator {
                 
         return  page.getByText('Practice Dashboard')
     }
