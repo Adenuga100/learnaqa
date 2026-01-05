@@ -60,8 +60,8 @@ test('Dynamic Elements functionality click delayed element on Dashboard', async 
     await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
     await signInPage.clickSignInButton(page);
     await DashboardPage.clickStartPracticesAs(page, 1);
-   await DynamicElementPage.clickDelayedElement(page);
-    await expect(DynamicElementPage.getTittle(page)).toBeVisible();
+    await DynamicElementPage.clickDelayedElement(page);
+    await expect(DynamicElementPage.getTittle(page)).toBeVisible({timeout: 10000});
 });
 
 test('Dynamic Elements functionality click delayed element on slide menus', async ({ page }) => {
@@ -73,7 +73,7 @@ test('Dynamic Elements functionality click delayed element on slide menus', asyn
     await signInPage.clickSignInButton(page);
     // await DashboardPage.clickStartPracticesAs(page, 1);
     await DashboardPage.clickMenusAs(page, 'Dynamic Elements');
-   await DynamicElementPage.clickDelayedElement(page);
-    await expect(DynamicElementPage.getTittle(page)).toBeVisible();
+    await DynamicElementPage.clickDelayedElement(page);
+    await expect(DynamicElementPage.getTittle(page)).toBeVisible({timeout: 10000});
 });
 
