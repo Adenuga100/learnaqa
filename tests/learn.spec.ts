@@ -3,6 +3,7 @@ import { sigUpPage } from "../pages/Signup.po";
 import { HomePage } from "../pages/Home.po";
 import { signInPage } from "../pages/Signin.po";
 import { DashboardPage } from "../pages/Dashboard.po";
+import { DynamicElementPage } from "../pages/DynamicElement.po";
 
 test('Sign Up functionality', async ({ page }) => {
     await page.goto(''); // Replace with your application's URL
@@ -50,3 +51,29 @@ test('Drag and Drop functionality on the slide menus', async ({ page }) => {
     await DashboardPage.dragAndDrop(page);
     await expect(DashboardPage.getTittle(page)).toBeVisible();
 });
+
+test('Dynamic Elements functionality click delayed element on Dashboard', async ({ page }) => {
+    await page.goto(''); // Replace with your application's URL
+    await HomePage.clickAcceptAllCookies(page);
+    await HomePage.sigIn(page);
+    await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
+    await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
+    await signInPage.clickSignInButton(page);
+    await DashboardPage.clickStartPracticesAs(page, 1);
+   await DynamicElementPage.clickDelayedElement(page);
+    await expect(DynamicElementPage.getTittle(page)).toBeVisible();
+});
+
+test('Dynamic Elements functionality click delayed element on slide menus', async ({ page }) => {
+    await page.goto(''); // Replace with your application's URL
+    await HomePage.clickAcceptAllCookies(page);
+    await HomePage.sigIn(page);
+    await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
+    await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
+    await signInPage.clickSignInButton(page);
+    // await DashboardPage.clickStartPracticesAs(page, 1);
+    await DashboardPage.clickMenusAs(page, 'Dynamic Elements');
+   await DynamicElementPage.clickDelayedElement(page);
+    await expect(DynamicElementPage.getTittle(page)).toBeVisible();
+});
+
