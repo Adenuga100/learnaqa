@@ -11,7 +11,7 @@ export class sigUpPage {
     //     return await page.locator('[name="email"]').fill(email);
     // }
 
-    static async fillFullEmailAs(page: Page): Promise<string> {
+    static async fillEmailAs(page: Page): Promise<string> {
         let email = `user_${crypto.randomUUID()}@testmail.com`;
         await page.locator('[name="email"]').fill(email);
         return email;

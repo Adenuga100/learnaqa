@@ -2,13 +2,13 @@ import { Locator, Page } from "@playwright/test";
 
 export class DashboardPage {
 
-    static async clickStartPracticesAs(page: Page, text: number): Promise<void> {
-        let clickStartPracticesBtn = page.getByText('Start Practice').nth(text); // Replace with actual selector
+    static async clickStartPracticeByIndex(page: Page, index: number): Promise<void> {
+        let clickStartPracticesBtn = page.getByText('Start Practice').nth(index); // Replace with actual selector
         // let clickStartPracticesBtn = labelpractices.locator('[class="btn focus-visible btn-outline btn-md w-full"]'); // Replace with actual selector
        return await clickStartPracticesBtn.click();
     }
 
-    static async clickMenusAs(page: Page, text: string): Promise<void> {
+    static async clickSideMenuByNameAs(page: Page, text: string): Promise<void> {
         let clickStartPracticesBtn = page.locator('[class="flex-1"]').filter({ hasText: text }); // Replace with actual selector
         // let clickStartPracticesBtn = labelpractices.locator('[class="btn focus-visible btn-outline btn-md w-full"]'); // Replace with actual selector
        return await clickStartPracticesBtn.click();
