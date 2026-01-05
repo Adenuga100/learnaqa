@@ -60,9 +60,19 @@ test('Dynamic Elements functionality click delayed element on slide menus', asyn
 
 test('Dynamic Elements functionality click ajax data loading element on dashboard', async ({ page }) => {
     await page.goto('/dashboard');
+    await DashboardPage.clickStartPracticeByIndex(page, 1);
+    // await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
+    await DynamicElementPage.clickAjaxDataLoading(page);
+    await DynamicElementPage.scrolldownonAjaxDataLoading(page);
+    await expect(DynamicElementPage.getAjaxDataLoadingTittle(page)).toBeVisible({timeout: 10000});
+});
+
+test('Dynamic Elements functionality click ajax data loading element on slide menus', async ({ page }) => {
+    await page.goto('/dashboard');
     //await DashboardPage.clickStartPracticesAs(page, 1);
     await DashboardPage.clickSideMenuByNameAs(page, 'Dynamic Elements');
-    await DynamicElementPage.clickDelayedElement(page);
-    await expect(DynamicElementPage.getTittle(page)).toBeVisible({timeout: 10000});
+    await DynamicElementPage.clickAjaxDataLoading(page);
+    await DynamicElementPage.scrolldownonAjaxDataLoading(page);
+    await expect(DynamicElementPage.getAjaxDataLoadingTittle(page)).toBeVisible({timeout: 10000});
 });
 
