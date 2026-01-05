@@ -26,7 +26,7 @@ test('Sign In functionality', async ({ page }) => {
 });
 
 
-test('Drag and Drop functionality', async ({ page }) => {
+test('Drag and Drop functionality on the Dashboard page', async ({ page }) => {
     await page.goto(''); // Replace with your application's URL
     await HomePage.clickAcceptAllCookies(page);
     await HomePage.sigIn(page);
@@ -34,6 +34,19 @@ test('Drag and Drop functionality', async ({ page }) => {
     await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
     await signInPage.clickSignInButton(page);
     await DashboardPage.clickStartPracticesAs(page, 0);
+    await DashboardPage.dragAndDrop(page);
+    await expect(DashboardPage.getTittle(page)).toBeVisible();
+});
+
+test('Drag and Drop functionality on the slide menus', async ({ page }) => {
+    await page.goto(''); // Replace with your application's URL
+    await HomePage.clickAcceptAllCookies(page);
+    await HomePage.sigIn(page);
+    await signInPage.fillEmailAs(page, 'adenugaadeyemiisaac@gmail.com');
+    await signInPage.fillPasswordAs(page, 'Hardayemmh4$');
+    await signInPage.clickSignInButton(page);
+    await DashboardPage.clickMenusAs(page, 'Drag and Drop');
+    // await DashboardPage.clickStartPracticesAs(page, 0);
     await DashboardPage.dragAndDrop(page);
     await expect(DashboardPage.getTittle(page)).toBeVisible();
 });

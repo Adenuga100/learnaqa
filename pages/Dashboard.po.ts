@@ -8,6 +8,12 @@ export class DashboardPage {
        return await clickStartPracticesBtn.click();
     }
 
+    static async clickMenusAs(page: Page, text: string): Promise<void> {
+        let clickStartPracticesBtn = page.locator('[class="flex-1"]').filter({ hasText: text }); // Replace with actual selector
+        // let clickStartPracticesBtn = labelpractices.locator('[class="btn focus-visible btn-outline btn-md w-full"]'); // Replace with actual selector
+       return await clickStartPracticesBtn.click();
+    }
+
     static async dragAndDrop(page: Page): Promise<void> {
         let source = page.locator('[class="space-y-3 min-h-[200px]"] [id*="item"]'); // Replace with actual selector
         let target = page.locator('[id="drop-zone"]'); // Replace with actual selector
